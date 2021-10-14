@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+  db:
+    restart: "no"
+  ui:
+    build:
+      context: ./services/ui
+      target: dev
+    restart: "no"
+    volumes:
+      - "./services/ui/src:/app/src"
+    ports:
+      - "3000:3000"
+  api:
+    depends_on: ["db"]
+    build:
+      context: ./services/api
+      target: dev
+    restart: "no"
+    volumes:
+      - "./services/api/src:/usr/src/app/src"
+    environment:
+      - NODE_ENV=development
