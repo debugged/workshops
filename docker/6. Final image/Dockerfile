@@ -11,7 +11,7 @@ FROM deps as builder
 COPY . .
 
 # compile code
-CMD npm run build
+RUN npm run build
 
 FROM node:16-alpine
 
