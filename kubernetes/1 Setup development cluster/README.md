@@ -18,7 +18,8 @@ k3d cluster create kw \
     --servers 1 \
     --agents 1 \
     --port 9080:80@loadbalancer \
-    --registry-use kw-r:5000
+    --registry-use kw-r:5000 \
+    --registry-config registries.yaml
 ```
 
 ### 3. Check if your cluster is running

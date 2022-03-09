@@ -16,4 +16,5 @@ k3d cluster create $CLUSTER_NAME \
     --servers 1 \
     --agents 1 \
     --port $HTTP_PORT:80@loadbalancer \
-    --registry-use $REGISTRY_NAME:$REGISTRY_PORT
+    --registry-use $REGISTRY_NAME:$REGISTRY_PORT \
+    --registry-config registries.yaml
