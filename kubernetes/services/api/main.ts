@@ -4,7 +4,7 @@ const app = express()
 const port = 3000
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send({hello: "world", time: new Date().toISOString()})
 })
 
 app.listen(port, () => {
