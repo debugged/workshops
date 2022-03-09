@@ -13,7 +13,7 @@ services:
       - db-data:/var/lib/mysql
   api:
     depends_on: ["db"]
-    image: fonty-api
+    image: fontys-api
     restart: always
     build:
       context: ./services/api
