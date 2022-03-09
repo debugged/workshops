@@ -4,8 +4,8 @@
 docker-compose -f ./docker-compose.yaml -f ./docker-compose.dev.yaml up --build
 
 ## Start production
-docker-compose -f ./docker-compose.yaml
+docker-compose -f ./docker-compose.yaml up
 
 # Presentation
 
-The presentation was no presentation for this workshop
+There was no presentation for this workshop
