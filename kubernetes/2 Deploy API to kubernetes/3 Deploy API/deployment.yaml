@@ -16,6 +16,10 @@ spec:
     spec:
       containers:
       - name: api
-        image: localhost:5000/api:v0.1
+        image: k3d-fontys:5000/api:v0.1
         ports:
         - containerPort: 3000
+        resources:
+          limits:
+            memory: 512Mi
+            cpu: "1"

@@ -25,6 +25,6 @@ export class AppComponent {
   }
 
   getConfig() {
-    return this.http.get<any>('http://localhost:9080/api');
+    return this.http.get<any>('http://api.localhost:9080');
   }
 }

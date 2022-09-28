@@ -8,18 +8,17 @@ In this step you'll setup a development cluster locally.
 ### 1. Create image registry
 k3d comes with a handy CLI tool to create and manage locally running cluster. In order to share your docker images with this cluster you'll need a image registry. To create this registry run the following command.
 ```bash
-k3d registry create kw-r --port 5001
+k3d registry create fontys --port 5001
 ```
 
 ### 2. Create k3d cluster
 Now the image registry has been created. We can create a k3d cluster. To do this we run the following command.
 ```bash
-k3d cluster create kw \
+k3d cluster create fontys \
     --servers 1 \
     --agents 1 \
     --port 9080:80@loadbalancer \
-    --registry-use kw-r:5000 \
-    --registry-config registries.yaml
+    --registry-use fontys:5001
 ```
 
 ### 3. Check if your cluster is running

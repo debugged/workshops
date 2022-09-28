@@ -3,7 +3,7 @@ import express from 'express';
 const app = express()
 const port = 3000
 
-app.get('/api', (req, res) => {
+app.get('/', (req, res) => {
   res.send({title: "Kubernetes workshop from API", time: new Date().toISOString()})
 })
 
