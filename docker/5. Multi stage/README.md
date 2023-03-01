@@ -9,4 +9,4 @@ To further optimize our image we can make use of multiple stages
 - Go to http://localhost:EXPOSED_PORT
 - See a message "Hello World!"?
 - 🎉 DONE 🎉 
-- [go to next assignment](../5.%20Multi%20stage/README.md)
+- [go to next assignment](../6.%20Final%20image/README.md)
