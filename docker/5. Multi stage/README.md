@@ -1,6 +1,6 @@
 # Assignment
 
-To further optimze our image we can make use of multiple stages
+To further optimize our image we can make use of multiple stages
 
 - Create a stage in which you download the dependencies
 - Create a stage that build/compiles your code
