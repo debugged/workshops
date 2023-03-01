@@ -1,6 +1,6 @@
 FROM node:16-alpine
 
-COPY package.json package-lock.json ./
+COPY package*.json ./
 
 # download dependencies
 RUN npm install

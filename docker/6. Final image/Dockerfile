@@ -1,23 +1,20 @@
-FROM node:16-alpine as deps
+FROM node:16-alpine as development
 
-COPY package.json package-lock.json ./
-
-# download dependencies
+COPY package*.json ./
 RUN npm ci
 
-FROM deps as builder
+FROM node:16-alpine As build
 
-# copy source code
-COPY . .
-
-# compile code
+COPY package*.json ./
+COPY --from=development /node_modules ./node_modules
+COPY main.ts tsconfig.json ./
 RUN npm run build
 
 FROM node:16-alpine
 
-COPY package.json package-lock.json ./
-RUN npm install --production
+COPY package*.json ./
+COPY --from=development /node_modules ./node_modules
+RUN npm prune --production
+COPY --from=build /dist/main.js ./
 
-COPY --from=builder dist ./
-
-CMD [ "node", "main.js" ]
+CMD ["node", "main.js"]
