@@ -1,13 +1,12 @@
 {
-  "name": "docker-workshop-4",
+  "name": "docker-workshop",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "lint": "eslint ."
   },
   "dependencies": {
     "react": "^19.1.1",

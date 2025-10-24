@@ -11,8 +11,7 @@ RUN npm ci
 # build static bundle
 RUN npm run build
 
-# copy bundle to nginx directory
-COPY dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+RUN cp -r dist/* /usr/share/nginx/html
+RUN cp nginx.conf /etc/nginx/conf.d/default.conf
 
 # nginx image already contains a CMD directive - so not necessary to add here
