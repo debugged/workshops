@@ -1,9 +1,18 @@
-FROM node:16-alpine
+FROM nginx:1.29-alpine3.22
+
+RUN apk add --update 'nodejs~22' 'npm~11'
 
 # TODO: copy dependency definitions and then source code
 COPY . .
 
-# download dependencies
-RUN npm install
+# download and install dependencies
+RUN npm ci
 
-CMD ["node", "main.js"]
+# build static bundle
+RUN npm run build
+
+# copy bundle to nginx directory
+COPY dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# nginx image already contains a CMD directive - so not necessary to add here

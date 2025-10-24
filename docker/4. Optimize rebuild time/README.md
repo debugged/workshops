@@ -7,6 +7,6 @@ To optimize build time copy only what's needed in order to download the dependen
 - Copy the source code
 - Build and run the image with the port exposed
 - Go to http://localhost:EXPOSED_PORT
-- See a message "Hello World!"?
-- 🎉 DONE 🎉 
+- See a message "Hello Fontys!"?
+- 🎉 DONE 🎉
 - [go to next assignment](../5.%20Multi%20stage/README.md)
