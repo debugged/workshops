@@ -1,20 +1,20 @@
-FROM node:16-alpine as development
+FROM node:22-alpine AS build
 
-COPY package*.json ./
+WORKDIR /app
+
+COPY package*.json .
+
+# download and install dependencies
 RUN npm ci
 
-FROM node:16-alpine As build
+COPY . .
 
-COPY package*.json ./
-COPY --from=development /node_modules ./node_modules
-COPY main.ts tsconfig.json ./
+# build static bundle
 RUN npm run build
 
-FROM node:16-alpine
+FROM nginx:1.29-alpine3.22 AS runtime
 
-COPY package*.json ./
-COPY --from=development /node_modules ./node_modules
-RUN npm prune --production
-COPY --from=build /dist/main.js ./
+COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=build /app/nginx.conf /etc/nginx/conf.d/default.conf
 
-CMD ["node", "main.js"]
+# nginx image already contains a CMD directive - so not necessary to add here
