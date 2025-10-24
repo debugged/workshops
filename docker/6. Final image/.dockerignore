@@ -1,1 +1,4 @@
 node_modules
+dist
+README.md
+eslint.config.js
